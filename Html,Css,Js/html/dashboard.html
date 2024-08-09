@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Management Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+           
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light">
+                <div class="position-sticky">
+                    <h4 class="p-3">Policy Management</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#policies">Policies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#settings">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+           
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+                <h1 class="my-4">Dashboard</h1>
+
+                <ul class="nav nav-tabs" id="dashboardTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="overview-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="policies-tab" data-bs-toggle="tab" href="#policies" role="tab" aria-controls="policies" aria-selected="false">Policies</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content mt-3" id="dashboardTabsContent">
+                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                        <p>Overview content goes here...</p>
+                    </div>
+                    <div class="tab-pane fade" id="policies" role="tabpanel" aria-labelledby="policies-tab">
+                      
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              
+                            </tbody>
+                        </table>
+                     
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#policyModal">Add Policy</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="policyModal" tabindex="-1" aria-labelledby="policyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="policyModalLabel">Add/Edit Policy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="policyForm">
+                        <div class="mb-3">
+                            <label for="policyName" class="form-label">Policy Name</label>
+                            <input type="text" class="form-control" id="policyName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="policyStatus" class="form-label">Status</label>
+                            <select class="form-select" id="policyStatus" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
